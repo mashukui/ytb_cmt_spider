@@ -46,7 +46,7 @@
 
 以上。
 ## 1.2 演示视频
-软件使用过程演示：[【爬虫演示】爬油管评论软件v3.0版](https://mp.weixin.qq.com/s/6tvQyS4QxohuELKUZJnbIA)
+软件使用过程完整演示视频：[【爬虫演示】爬油管评论软件v3.0版](https://mp.weixin.qq.com/s/6tvQyS4QxohuELKUZJnbIA)
 
 ## 1.3 软件说明
 几点重要说明：
@@ -147,10 +147,12 @@ def get_logger(self):
 季卡：使用期限3个月，399元。季卡可多次购买。适合中期采集需求
 年卡：使用期限1年，799元。年卡可多次购买。适合长期采集需求
 ```
-付费方式：
-<img width="2144" height="412" alt="收款码v4" src="https://github.com/user-attachments/assets/4eca6224-6d53-45ca-99e5-e3228ed205c1" />
+**1）付费方式一：（手动获取，付费后加我微信（493882434）对接卡密）**
+<img width="2324" height="604" alt="收款码v5" src="https://github.com/user-attachments/assets/0f3c32ad-099a-416b-8677-103fe230a5a9" />
 
-付费后，加我微信（493882434）自动掉落登录卡密。
+**2）付费方式二：（自动获取， 自己付费自己拿卡密，无需加v对接）**
+
+自助开通入口：https://kjyjf.xetlk.com/s/2Qne5a
 
 ## 4.2 一机一码
 软件采用一机一码机制，一个卡密只能在一台电脑运行、不可多电脑运行。
