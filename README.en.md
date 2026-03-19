@@ -1,10 +1,12 @@
 # ytb_cmt_spider
 
-> **Original by 马哥:** I independently developed a crawler software using Python: YouTube Comment Spider. Purpose: Crawl comment data from specified YouTube videos.
-
-> **Already wrapped as GUI software, designed for non-programmers!**
+> **Original by 马哥:** I independently developed a crawler software using Python: YouTube Comment Spider. Purpose: Crawl comment data from specified YouTube videos. Already wrapped as GUI software, designed for non-programmers!
 
 ---
+
+<p align="center">
+<a href="README.md">中文版 README</a> | <a href="README.en.md">English README</a>
+</p>
 
 ## Table of Contents
 
