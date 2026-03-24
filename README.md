@@ -1,6 +1,5 @@
 # ytb_cmt_spider
-> 马哥原创：我用Python独立开发了一款爬虫软件：爬油管评论软件。作用是：爬取油管指定视频下的评论数据。
-> 已封装成界面软件，专为不懂编程的小白用户使用！
+> 🔥 YouTube评论采集神器 - 海外评论采集、10个关键字段，GUI界面开箱即用。商业软件，提供日卡试用。
 
 <p align="center">
 <a href="README.md">简体中文</a> | <a href="README.en.md">English</a>
