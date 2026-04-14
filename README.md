@@ -1,8 +1,8 @@
 # ytb_cmt_spider
-> 🔥 YouTube评论采集神器 - 海外评论采集、10个关键字段，GUI界面开箱即用。商业软件，提供日卡试用。
+> 🔥 YouTube评论采集器 - 海外评论采集、10个关键字段，GUI软件开箱即用，小白友好，提供日卡试用
 
 <p align="center">
-<a href="README.md">简体中文</a> | <a href="README.en.md">English</a>
+<a href="README.md">简体中文 README</a> | <a href="README.en.md">English README</a>
 </p>
 
 # 一、背景介绍
@@ -156,9 +156,6 @@ def get_logger(self):
 **方式二：自助开通**
 
 开通入口：https://kjyjf.xetlk.com/s/2Qne5a
-
-**方式三：手动开通，付费后加v（493882434）对接**
-<img width="2324" height="604" alt="收款码v5" src="https://github.com/user-attachments/assets/0f3c32ad-099a-416b-8677-103fe230a5a9" />
 
 ## 4.2 一机一码
 软件采用一机一码机制，一个卡密只能在一台电脑运行、不可多电脑运行。
