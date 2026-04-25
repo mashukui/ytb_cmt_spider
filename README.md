@@ -1,5 +1,9 @@
 # ytb_cmt_spider
-> 🔥 YouTube评论采集器 - 海外评论采集、10个关键字段，GUI软件开箱即用，小白友好，提供日卡试用
+> 🔥YouTube评论采集器 - 海外评论采集，10个关键字段，GUI软件开箱即用，小白友好，提供日卡试用
+> 
+> 🔧支持功能：✅批量视频采集评论 ✅自动识别语言 ✅导出CSV文件/JSON文件
+> 
+> [👉🏻点这里下载最新版安装包](https://github.com/mashukui/ytb_cmt_spider/releases)
 
 <p align="center">
 <a href="README.md">简体中文 README</a> | <a href="README.en.md">English README</a>
@@ -32,8 +36,7 @@
 开发成界面软件的目的：方便不懂编程代码的小白用户使用，无需安装python，无需改代码，双击打开即用！
 
 软件运行界面：
-
-![软件运行截图](https://files.mdnice.com/user/32110/621e7907-cca6-4399-bdad-8c8dfbfa3a5d.png)
+<img width="1700" height="1356" alt="爬油管评论软件v3 3" src="https://github.com/user-attachments/assets/f992d248-2521-4455-a8f0-64ed55a05d4d" />
 
  
 《目标视频.xlsx》模板中的填写：
@@ -144,18 +147,14 @@ def get_logger(self):
 ## 4.1 卡密说明
 付费如下：
 ```python
-日卡：使用期限1天，39元。日卡仅能购买一次。适合试用等临时需求
-月卡：使用期限1个月，149元。月卡可多次购买。适合短期采集需求
-季卡：使用期限3个月，399元。季卡可多次购买。适合中期采集需求
-年卡：使用期限1年，799元。年卡可多次购买。适合长期采集需求
+日卡：使用期限1天，39元。适合试用等临时需求
+月卡：使用期限1个月，149元。适合短期采集需求
+季卡：使用期限3个月，399元。适合中期采集需求
+年卡：使用期限1年，799元。适合长期采集需求
 ```
-**方式一：自助开通（推荐）**
 
 开通入口：https://mgnb.pro/product/youtube_cmt
 
-**方式二：自助开通**
-
-开通入口：https://kjyjf.xetlk.com/s/2Qne5a
 
 ## 4.2 一机一码
 软件采用一机一码机制，一个卡密只能在一台电脑运行、不可多电脑运行。
@@ -167,6 +166,6 @@ def get_logger(self):
 软件由本人独立原创开发，长期维护更新，提供稳定运行。
 
 # 五、软件获取
-公众号"**老男孩的平凡之路**"，后台回复"**爬油管评论**"获取最新版软件安装包。
+公众号"**老男孩的平凡之路**"，后台回复"**爬油管评论**"获取最新版软件安装包。[点这里直达下载](https://github.com/mashukui/ytb_cmt_spider/releases)
 <img width="1938" height="364" alt="二维码-公众号放底部v2" src="https://github.com/user-attachments/assets/bf8a3a19-eb1f-49a0-b919-d0d5d67fe20d" />
 
