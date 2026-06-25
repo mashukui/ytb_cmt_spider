@@ -165,19 +165,9 @@ After completion, a CSV file with the same name as the video ID will be generate
 
 ## Purchase Methods
 
-### Method 1: Self-Service Activation (Recommended)
+### Self-Service Activation (Recommended)
 
 Activation Portal: https://mgnb.pro/product/youtube_cmt
-
-### Method 2: Self-Service Activation
-
-Activation Portal: https://kjyjf.xetlk.com/s/2Qne5a
-
-### Method 3: Manual Activation
-
-After payment, add WeChat (493882434) to connect:
-
-![Payment QR Code](https://github.com/user-attachments/assets/0f3c32ad-099a-416b-8677-103fe230a5a9)
 
 ---
 
@@ -204,10 +194,8 @@ The software is independently and originally developed by the author, with long-
 WeChat Official Account: **老男孩的平凡之路**
 
 Reply to: **"爬油管评论"** (Crawl YouTube Comments)
+<img width="1406" height="266" alt="二维码-公众号放底部v3" src="https://github.com/user-attachments/assets/28c5c2bc-ea95-4baf-bfbb-d6faec6c52dd" />
 
-![WeChat QR Code](https://github.com/user-attachments/assets/bf8a3a19-eb1f-49a0-b919-d0d5d67fe20d)
-
----
 
 ## Support
 
@@ -216,7 +204,7 @@ If you encounter any issues:
 1. Check the log file in the `logs/` folder for detailed error messages
 2. Ensure your internet connection is stable
 3. Verify YouTube video URLs are correct
-4. Contact support via WeChat (493882434) for further assistance
+4. Contact support via WeChat (magepy132) for further assistance
 
 ---
 
