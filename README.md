@@ -1,171 +1,174 @@
 # ytb_cmt_spider
-> 🔥YouTube评论采集器 - 海外评论采集，10个关键字段，GUI软件开箱即用，小白友好，提供日卡试用
-> 
-> 🔧支持功能：✅批量视频采集评论 ✅自动识别语言 ✅导出CSV文件/JSON文件
-> 
-> [👉🏻点这里下载最新版安装包](https://github.com/mashukui/ytb_cmt_spider/releases)
+
+> 🔥 YouTube 评论采集工具 / YouTube comment crawler GUI，支持批量视频评论采集、语言识别、评论分页采集、CSV/JSON导出和运行日志记录。
+>
+> 💡 支持 Windows/macOS，无需配置 Python 环境；仓库用于软件介绍、版本发布、使用说明和问题反馈，完整源码暂不公开。
+>
+> [⬇️下载最新版](https://github.com/mashukui/ytb_cmt_spider/releases/) | [🎬使用演示](https://www.bilibili.com/video/BV1qWUwBsEo9/) |  [💳开通使用](https://mgnb.pro/product/youtube_cmt)
 
 <p align="center">
-<a href="README.md">简体中文 README</a> | <a href="README.en.md">English README</a>
+  <a href="README.md">简体中文 README</a> | <a href="README.en.md">English README</a>
 </p>
 
-# 一、背景介绍
-## 1.1 爬取目标
+## 👋 软件简介
 
-您好！我是[@马哥python说](https://github.com/mashukui)，一名10年程序猿。
-<img width="1027" height="134" alt="youtube_slogon2" src="https://github.com/user-attachments/assets/b6db770a-a573-485a-8867-7f1dfd33f397" />
+`ytb_cmt_spider` 是一款面向YouTube评论数据采集场景的桌面GUI工具，支持批量输入视频链接，自动采集视频评论、评论作者、评论时间、点赞数、语言识别结果等数据，并导出为 CSV/JSON 文件。用户无需配置Python环境，下载客户端后登录即可使用。
 
-我用Python独立开发了一款爬虫软件，作用是：爬取油管指定视频下的评论数据，支持批量视频的采集。
+它适合以下场景：
 
-包含10个关键字段：
-```
-1. cid(评论id)
-2. text(评论内容)
-3. time(评论时间_相对)
-4. author(评论者昵称)
-5. channel(评论者频道)
-6. votes(评论点赞数)
-7. replies(评论回复数)
-8. time_parsed(评论时间转换)
-9. time2(评论时间_绝对)
-10. video_id(视频id)
-```
+| 场景 | 说明 |
+| --- | --- |
+| ✅ 跨境运营 | 采集YouTube视频评论，了解海外用户反馈、内容偏好和产品评价 |
+| ✅ 舆情分析 | 跟踪品牌、事件或话题相关视频评论，观察讨论趋势和用户态度 |
+| ✅ 内容创作 | 分析热门视频评论区高频问题、观众兴趣和互动反馈 |
+| ✅ 数据研究 | 导出评论文本、作者信息和语言信息，用于后续数据清洗与分析 |
 
-软件是通过调用YouTube的网页接口，不是模拟操作浏览器，所以稳定性较高！
+## ⚙️ 功能概览
 
-开发成界面软件的目的：方便不懂编程代码的小白用户使用，无需安装python，无需改代码，双击打开即用！
+| 功能 | 说明 | 输出 |
+| --- | --- | --- |
+| ✅ 批量视频评论采集 | 支持输入多个YouTube视频链接，批量采集评论数据 | CSV、JSON |
+| ✅ 评论分页采集 | 自动翻页采集评论列表，减少手动复制和重复操作 | CSV、JSON |
+| ✅ 评论语言识别 | 自动识别评论语言，便于筛选不同语种评论 | CSV、JSON |
+| ✅ 评论互动数据 | 采集评论时间、点赞数等互动字段 | CSV、JSON |
+| ✅ 自动保存 | 采集过程中持续保存结果，降低中断丢数风险 | CSV、JSON |
+| ✅ 运行日志 | 自动记录运行过程，便于排查问题 | logs日志文件 |
 
-软件运行界面：
-<img width="1700" height="1356" alt="爬油管评论软件v3 3" src="https://github.com/user-attachments/assets/f992d248-2521-4455-a8f0-64ed55a05d4d" />
+## 🚀 快速开始
 
- 
-《目标视频.xlsx》模板中的填写：
+1. 打开 [Releases](https://github.com/mashukui/ytb_cmt_spider/releases/) 下载最新版软件。
+2. 解压后运行对应系统的客户端。
+3. 登录软件账号。
+4. 在 `目标视频.xlsx` 中批量填写YouTube视频链接。
+5. 点击「开始执行」，等待采集完成。
+6. 在软件所在目录查看CSV/JSON结果文件和日志文件。
 
-![目标视频](https://files.mdnice.com/user/32110/3c662da2-bbd4-4f0e-a34b-4aba1580dbf5.png)
+## 💻 支持系统
 
- 
-也就是说，在目标视频文件中填入了5个待爬视频，然后在软件界面上选择爬这5个视频的前30条热门评论。所以，采集结果csv文件中会自动导出150条热门评论，如下：
+| 系统 | 支持情况 |
+| --- | --- |
+| Windows | 支持，下载 Windows 客户端即可运行 |
+| macOS | 支持，下载 macOS 客户端即可运行 |
 
-爬取结果截图：
-![采集到的评论数据](https://files.mdnice.com/user/32110/96f28217-2a65-415e-a7ab-117d9a99609f.png)
+## 🖼️ 功能展示
 
-以上。
-## 1.2 演示视频
-软件使用过程完整演示视频：[【爬虫演示】爬油管评论软件v3.0版](https://mp.weixin.qq.com/s/6tvQyS4QxohuELKUZJnbIA)
+### 评论采集
 
-## 1.3 软件说明
-几点重要说明：
-1. 专为文科生研发，Win系统、Mac系统均可直接运行，无需配置python环境
-2. 软件通过接口爬取，并非通过模拟浏览器等RPA类工具，稳定性较高！
-3. 软件运行完成后，会在当前文件夹（即，软件所在文件夹）生成csv结果文件
-4. 爬取过程中，每爬一页，存一次结果。并非爬完最后一次性保存！防止因异常中断导致丢失前面的数据（每页请求间隔1~2s）
-5. 爬取过程中，有log文件详细记录运行过程，方便回溯
-6. 采集结果有10个字段，含：cid(评论id),text(评论内容),time(评论时间_相对),author(评论者昵称),channel(评论者频道),votes(评论点赞数),replies(评论回复数),time_parsed(评论时间转换),time2(评论时间_绝对),video_id(视频id)
+软件提供 GUI 操作界面，可输入 YouTube 视频链接并启动评论采集任务。
+<img width="1700" height="1356" alt="爬油管评论软件v3 3" src="https://github.com/user-attachments/assets/af3caca6-f071-4377-871e-77e3d45a63bb" />
 
-以上。
-# 二、代码概要
-## 2.1 调用接口
-为保护软件原创版权，不开放核心爬虫逻辑代码。
 
-最后，把json数据转出到csv文件：
-```python
-self.tk_show('[第{}/{}个][{}][{}]comment:{}'.format(video_idx, video_id_total, video_id, cnt, comment['text']))
-with open('./jsons/{}.json'.format(video_id), 'a+', encoding='utf-8') as f:
-	f.write(json.dumps(comment, ensure_ascii=False))
-	f.write('\n')
-```
-我采用csv库保存结果，实现每爬一条存一次，防止中途异常停止丢失前面的数据。
+### 数据导出
 
-完整代码中，还含有：读取配置判断、循环结束条件判断、拼接频道URL、try异常保护、日志记录等关键实现逻辑。
+采集完成后，软件会生成结构化结果文件，便于后续用 Excel、Python、数据库或 BI 工具处理。
+<img width="1440" height="586" alt="image" src="https://github.com/user-attachments/assets/928dc2e4-da41-49b0-b205-be4f1e9e5b47" />
 
-另外，魔法是一切的前提，此处不便多说！
 
-## 2.2 软件界面模块
-主窗口部分：
-```python
-# 创建主窗口
-root = tk.Tk()
-root.title('爬油管评论软件v3.0 | 马哥python说 |')
-# 设置窗口大小
-root.minsize(width=850, height=650)
-# 左上角图标
-root.iconbitmap('mage.ico')
-```
-输入控件部分：
-```python
-# 爬取数量
-tk.Label(root, text='爬取数量:').place(x=30, y=125)
-comment_num = tk.Spinbox(root, from_=-1, to=9999999, increment=1, width=10, font=('微软', 15))
-comment_num.place(x=100, y=125, anchor='nw')
-tk.Label(root, fg='red', text='每个视频爬前几条评论，-1代表爬取全部').place(x=240, y=125)
-```
-运行日志部分：
-```python
-# 运行日志
-tk.Label(root, justify='left', text='运行日志:').place(x=30, y=280)
-show_list_Frame = tk.Frame(width=780, height=260)  # 创建<消息列表分区>
-show_list_Frame.pack_propagate(0)
-show_list_Frame.place(x=30, y=310, anchor='nw')  # 摆放位置
-```
-底部版权部分：
-```python
-# 版权信息
-copyright = tk.Label(root, text='@马哥python说 All rights reserved.', font=('仿宋', 10), fg='grey')
-copyright.place(x=290, y=625)
-```
-以上。
-## 2.3 日志模块
-好的日志功能，方便软件运行出问题后快速定位原因，修复bug。 
-日志核心代码：
-```python
-def get_logger(self):
-	self.logger = logging.getLogger(__name__)
-	# 日志格式
-	formatter = '[%(asctime)s-%(filename)s][%(funcName)s-%(lineno)d]--%(message)s'
-	# 日志级别
-	self.logger.setLevel(logging.DEBUG)
-	# 控制台日志
-	sh = logging.StreamHandler()
-	log_formatter = logging.Formatter(formatter, datefmt='%Y-%m-%d %H:%M:%S')
-	# info日志文件名
-	info_file_name = time.strftime("%Y-%m-%d") + '.log'
-	# 将其保存到特定目录
-	case_dir = r'./logs/'
-	info_handler = TimedRotatingFileHandler(filename=case_dir + info_file_name,
-						when='MIDNIGHT',
-						interval=1,
-						backupCount=7,
-						encoding='utf-8')
-```
-日志文件：
-![log文件](https://files.mdnice.com/user/32110/357b9026-32dd-4527-b2f6-dd5ae77d2d61.png)
+## 📊 输出字段
 
- 
-以上。
+软件会根据采集任务生成对应的 CSV/JSON 文件。字段较多，下面先按数据类型展示主要字段范围；需要完整字段时，可展开查看。
 
-# 四、付费说明
-## 4.1 卡密说明
-付费如下：
-```python
-日卡：使用期限1天，39元。适合试用等临时需求
-月卡：使用期限1个月，149元。适合短期采集需求
-季卡：使用期限3个月，399元。适合中期采集需求
-年卡：使用期限1年，799元。适合长期采集需求
-```
+### 评论数据
+
+- 采集信息：视频链接、视频 id、页码或序号
+- 评论信息：评论 id、评论内容、评论时间、评论点赞数、评论级别
+- 作者信息：作者昵称、作者频道 id、作者频道链接
+- 语言信息：评论语言、语言识别结果
+
+<details>
+<summary>查看评论完整字段</summary>
+
+视频链接、视频 id、评论 id、评论序号、作者昵称、作者频道 id、作者频道链接、评论时间、评论点赞数、评论级别、评论语言、评论内容
+
+</details>
+
+### 导出文件
+
+- CSV：适合 Excel、WPS、Numbers、Python pandas 等工具继续处理
+- JSON：适合程序化处理、数据入库、接口对接和保留结构化数据
+- 日志文件：记录采集过程、异常信息和保存路径，便于排查问题
+
+## 🛠️ 技术说明
+
+软件采用 Python 开发，核心模块包括：
+
+| 模块 | 用途 |
+| --- | --- |
+| tkinter | GUI 软件界面 |
+| requests | 接口请求 |
+| json | 响应数据解析 |
+| pandas | CSV 数据保存 |
+| logging | 运行日志记录 |
+
+软件通过接口请求采集数据，不依赖手动复制评论。采集过程中会持续保存结果，便于降低网络异常、账号状态变化或任务中断造成的数据损失。
+
+## 💰 价格说明
+
+| 类型 | 使用期限 | 价格 | 适用场景 |
+| --- | --- | --- | --- |
+| 日卡 | 1 天 | 39 元 | 临时试用、小批量任务 |
+| 月卡 | 1 个月 | 149 元 | 短期采集需求 |
+| 季卡 | 3 个月 | 399 元 | 中期采集需求 |
+| 年卡 | 1 年 | 799 元 | 长期稳定使用 |
 
 开通入口：https://mgnb.pro/product/youtube_cmt
 
+## 🔐 授权规则
 
-## 4.2 一机一码
-软件采用一机一码机制，一个卡密只能在一台电脑运行、不可多电脑运行。
+- 软件采用一机一码机制，一个卡密仅支持一台电脑使用。
+- 一台电脑仅允许运行一个软件实例，不支持多开。
+- 软件由作者长期维护，后续版本通过 [GitHub Releases](https://github.com/mashukui/ytb_cmt_spider/releases/) 发布。
 
-## 4.3 软件多开
-一台电脑仅允许运行一个软件，不支持软件多开。
+## ❓ 常见问题
 
-## 4.4 软件维护
-软件由本人独立原创开发，长期维护更新，提供稳定运行。
+### 是否需要安装 Python？
 
-# 五、软件获取
-公众号"**老男孩的平凡之路**"，后台回复"**爬油管评论**"获取最新版软件安装包。[点这里直达下载](https://github.com/mashukui/ytb_cmt_spider/releases)
-<img width="1938" height="364" alt="二维码-公众号放底部v2" src="https://github.com/user-attachments/assets/bf8a3a19-eb1f-49a0-b919-d0d5d67fe20d" />
+不需要。软件已打包为桌面客户端，下载对应系统版本后即可运行。
+
+### 是否需要登录YouTube？
+
+不需要。软件通过网页接口实现持续采集，无需登录YouTube账号。
+
+### 采集中断后数据会丢失吗？
+
+软件会在采集过程中增量保存结果。即使中途中断，已完成部分仍会保留在结果文件中。
+
+### 结果文件保存在哪里？
+
+默认保存在软件所在文件夹。`CSV/JSON`文件和日志文件会根据任务生成。
+
+### 支持采集多少评论？
+
+软件已解决反爬问题，可实现持续稳定采集，实际可采集数量与评论区可见数量一致。
+
+### 软件报错怎么办？
+
+请优先查看 `logs` 目录下的日志文件，并在反馈时提供以下信息：
+
+- 软件版本
+- 操作系统
+- 使用的视频链接
+- 设置的采集参数
+- 报错截图
+- 对应时间段的日志内容
+
+## ⚠️ 合规声明
+
+本软件仅供合法合规的数据分析、学习研究和自有业务场景使用。使用者应自行遵守YouTube服务条款、隐私政策以及所在地法律法规。
+
+请勿将本软件用于以下用途：
+
+- 高频、恶意或破坏性请求
+- 未经授权采集、传播或售卖个人敏感信息
+- 侵犯平台、频道作者或用户合法权益的行为
+- 违反法律法规或平台规则的其他行为
+
+因使用者不当使用造成的风险和责任，由使用者自行承担。
+
+## 📦 获取软件
+
+- GitHub Releases：[https://github.com/mashukui/ytb_cmt_spider/releases/](https://github.com/mashukui/ytb_cmt_spider/releases/)
+- 公众号 `老男孩的平凡之路`后台回复 `爬YouTube评论软件`
+
+<img width="1406" height="266" alt="二维码-公众号放底部v3" src="https://github.com/user-attachments/assets/89746aca-0200-461c-966d-1e5280668a44" />
 
