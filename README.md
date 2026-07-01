@@ -55,13 +55,13 @@
 ### 评论采集
 
 软件提供 GUI 操作界面，可输入 YouTube 视频链接并启动评论采集任务。
-<img width="1700" height="1356" alt="爬油管评论软件v3 3" src="https://github.com/user-attachments/assets/af3caca6-f071-4377-871e-77e3d45a63bb" />
+<img alt="爬油管评论软件v3 3" src="https://github.com/user-attachments/assets/af3caca6-f071-4377-871e-77e3d45a63bb" />
 
 
 ### 数据导出
 
 采集完成后，软件会生成结构化结果文件，便于后续用 Excel、Python、数据库或 BI 工具处理。
-<img width="1440" height="586" alt="image" src="https://github.com/user-attachments/assets/928dc2e4-da41-49b0-b205-be4f1e9e5b47" />
+<img alt="image" src="https://github.com/user-attachments/assets/928dc2e4-da41-49b0-b205-be4f1e9e5b47" />
 
 
 ## 📊 输出字段
@@ -170,5 +170,5 @@
 - GitHub Releases：[https://github.com/mashukui/ytb_cmt_spider/releases/](https://github.com/mashukui/ytb_cmt_spider/releases/)
 - 公众号 `老男孩的平凡之路`后台回复 `爬YouTube评论软件`
 
-<img width="1406" height="266" alt="二维码-公众号放底部v3" src="https://github.com/user-attachments/assets/89746aca-0200-461c-966d-1e5280668a44" />
+<img alt="二维码-公众号放底部v3" src="https://github.com/user-attachments/assets/89746aca-0200-461c-966d-1e5280668a44" />
 
