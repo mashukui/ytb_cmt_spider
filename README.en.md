@@ -168,6 +168,6 @@ Users are solely responsible for risks and liabilities caused by improper use.
 ## 📦 Get the Software
 
 - GitHub Releases: [https://github.com/mashukui/ytb_cmt_spider/releases/](https://github.com/mashukui/ytb_cmt_spider/releases/)
-- Reply `爬油管评论软件` in the WeChat official account `老男孩的平凡之路`
+- Reply `爬油管评论` in the WeChat official account `老男孩的平凡之路`
 
-<img alt="WeChat official account QR code" src="https://github.com/user-attachments/assets/89746aca-0200-461c-966d-1e5280668a44" />
+<img width="573" height="196" alt="二维码-公众号放底部v4" src="https://github.com/user-attachments/assets/6113cb90-3f25-4e31-831d-52d4d7516596" />
