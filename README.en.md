@@ -1,219 +1,173 @@
 # ytb_cmt_spider
 
-> **Original by 马哥:** I independently developed a crawler software using Python: YouTube Comment Spider. Purpose: Crawl comment data from specified YouTube videos. Already wrapped as GUI software, designed for non-programmers!
-
----
+> 🔥 YouTube comment collection tool / YouTube comment crawler GUI, supporting batch video comment collection, language detection, paginated comment collection, CSV/JSON export, and runtime logging.
+>
+> 💡 Supports Windows/macOS with no Python environment required. This repository is used for software introduction, release distribution, usage documentation, and issue feedback. The complete source code is not publicly available.
+>
+> [⬇️Download Latest Release](https://github.com/mashukui/ytb_cmt_spider/releases/) | [🎬Video Demo](https://www.bilibili.com/video/BV1qWUwBsEo9/) | [💳Purchase Access](https://mgnb.pro/product/youtube_cmt)
 
 <p align="center">
-<a href="README.md">中文版 README</a> | <a href="README.en.md">English README</a>
+  <a href="README.md">简体中文 README</a> | <a href="README.en.md">English README</a>
 </p>
 
-## Table of Contents
+## 👋 Overview
 
-- [Introduction](#introduction)
-  - [Target](#target)
-  - [Demo Video](#demo-video)
-  - [Software Description](#software-description)
-- [Features](#features)
-- [How to Use](#how-to-use)
-- [Requirements](#requirements)
-- [Pricing](#pricing)
-- [Purchase Methods](#purchase-methods)
-- [License Agreement](#license-agreement)
-- [Software Distribution](#software-distribution)
+`ytb_cmt_spider` is a desktop GUI tool designed for YouTube comment data collection scenarios. It supports batch input of video links, automatically collects video comments, comment authors, comment time, likes, language detection results, and related data, then exports the results as CSV/JSON files. Users do not need to install or configure a Python environment. Download the client, log in, and start using it.
 
----
+It is suitable for the following scenarios:
 
-## Introduction
+| Scenario | Description |
+| --- | --- |
+| ✅ Cross-border operations | Collect YouTube video comments to understand overseas user feedback, content preferences, and product reviews |
+| ✅ Public opinion analysis | Track comments under brand, event, or topic-related videos to observe discussion trends and user attitudes |
+| ✅ Content research | Analyze frequent questions, audience interests, and interaction feedback in popular video comment sections |
+| ✅ Data research | Export comment text, author information, and language information for further data cleaning and analysis |
 
-### Target
+## ⚙️ Features
 
-Hello! I am [@马哥python说](https://github.com/mashukui), a 10-year software developer.
+| Feature | Description | Output |
+| --- | --- | --- |
+| ✅ Batch video comment collection | Enter multiple YouTube video links and collect comments in batches | CSV, JSON |
+| ✅ Paginated comment collection | Automatically collect paginated comment lists and reduce manual copying or repeated operations | CSV, JSON |
+| ✅ Comment language detection | Automatically detect comment languages for filtering comments in different languages | CSV, JSON |
+| ✅ Comment interaction data | Collect comment time, likes, and related interaction fields | CSV, JSON |
+| ✅ Incremental saving | Continuously save results during collection to reduce data loss caused by interruptions | CSV, JSON |
+| ✅ Runtime logs | Record runtime logs for troubleshooting | logs files |
 
-I independently developed a crawler software using Python that crawls comment data from specified YouTube videos, supporting batch video collection.
+## 🚀 Quick Start
 
-**Contains 10 key fields:**
+1. Open [Releases](https://github.com/mashukui/ytb_cmt_spider/releases/) and download the latest version.
+2. Extract the package and run the client for your operating system.
+3. Log in to the software account.
+4. Batch-fill YouTube video links in `目标视频.xlsx`.
+5. Click "Start" and wait for the collection task to finish.
+6. Check the CSV/JSON result files and log files in the software directory.
 
-```
-1. cid (Comment ID)
-2. text (Comment Content)
-3. time (Comment Time - Relative)
-4. author (Commenter Nickname)
-5. channel (Commenter Channel)
-6. votes (Comment Likes)
-7. replies (Comment Replies)
-8. time_parsed (Comment Time Converted)
-9. time2 (Comment Time - Absolute)
-10. video_id (Video ID)
-```
+## 💻 Supported Platforms
 
-The software calls YouTube's web API interface, not simulating browser operations, so it has high stability!
+| Platform | Support |
+| --- | --- |
+| Windows | Supported. Download and run the Windows client |
+| macOS | Supported. Download and run the macOS client |
 
-**Development purpose:** To facilitate use by non-programmers, no need to install Python, no need to modify code, just double-click to use!
+## 🖼️ Screenshots
 
-**Software Interface:**
+### Comment Collection
 
-![Software Screenshot](https://files.mdnice.com/user/32110/621e7907-cca6-4399-bdad-8c8dfbfa3a5d.png)
+The software provides a GUI interface for entering YouTube video links and starting comment collection tasks.
 
-**Target Video Template:**
+<img alt="YouTube comment crawler v3.3" src="https://github.com/user-attachments/assets/af3caca6-f071-4377-871e-77e3d45a63bb" />
 
-![Target Video](https://files.mdnice.com/user/32110/3c662da2-bbd4-4f0e-a34b-4aba1580dbf5.png)
+### Data Export
 
-**Example:**
-- In the target video file, you fill in 5 videos to crawl
-- On the software interface, select the top 30 popular comments for each video
-- The CSV result file will automatically export 150 popular comments
+After collection is complete, the software generates structured result files for further processing with Excel, Python, databases, or BI tools.
 
-**Crawling Result Screenshot:**
+<img alt="YouTube comment collection result" src="https://github.com/user-attachments/assets/928dc2e4-da41-49b0-b205-be4f1e9e5b47" />
 
-![Crawling Result](https://files.mdnice.com/user/32110/96f28217-2a65-415e-a7ab-117d9a99609f.png)
+## 📊 Output Fields
 
----
+The software generates CSV/JSON files based on the collection task. Since there are many fields, the main field groups are shown first. You can expand the section below to view the full field list.
 
-### Demo Video
+### Comment Data
 
-Complete demonstration video of software usage: [【爬虫演示】爬油管评论软件v3.0版](https://mp.weixin.qq.com/s/6tvQyS4QxohuELKUZJnbIA)
+- Collection info: video link, video id, page or index
+- Comment info: comment id, comment content, comment time, comment likes, comment level
+- Author info: author nickname, author channel id, author channel link
+- Language info: comment language, language detection result
 
----
+<details>
+<summary>View full comment fields</summary>
 
-### Software Description
+Video link, video id, comment id, comment index, author nickname, author channel id, author channel link, comment time, comment likes, comment level, comment language, comment content
 
-**Key Points:**
+</details>
 
-1. Designed for non-programmers, works on both Windows and Mac systems directly, no Python environment configuration needed
-2. Software crawls via API, not via browser simulation or RPA tools, high stability!
-3. After software completes, a CSV result file is generated in the current folder (where the software is located)
-4. During crawling, results are saved after each page is crawled, not all at once after completion, to prevent data loss from unexpected interruptions (1-2s interval between page requests)
-5. During crawling, a log file records the running process in detail for easy troubleshooting
-6. Crawling results contain 10 fields: cid, text, time, author, channel, votes, replies, time_parsed, time2, video_id
+### Export Files
 
----
+- CSV: suitable for Excel, WPS, Numbers, Python pandas, and similar tools
+- JSON: suitable for programmatic processing, database import, API integration, and retaining structured data
+- Log files: record collection progress, exception information, and save paths for troubleshooting
 
-## Features
+## 🛠️ Technical Notes
 
-✅ **GUI Interface** - No programming required, double-click to use
-✅ **Batch Processing** - Crawl multiple videos at once
-✅ **High Stability** - Uses API instead of browser simulation
-✅ **Real-time Saving** - Data saved after each page to prevent loss
-✅ **Detailed Logging** - Complete log file for troubleshooting
-✅ **10 Key Fields** - Comprehensive comment data extraction
+The software is developed in Python. Core modules include:
 
----
+| Module | Purpose |
+| --- | --- |
+| tkinter | GUI interface |
+| requests | API requests |
+| json | Response parsing |
+| pandas | CSV export |
+| logging | Runtime logging |
 
-## How to Use
+The software collects data through web interfaces and does not require manually copying comments. During collection, results are incrementally saved to reduce data loss caused by network issues, account state changes, or task interruptions.
 
-### Step 1: Prepare Target Video File
+## 💰 Pricing
 
-Create an Excel file (named `目标视频.xlsx`) and fill in YouTube video URLs in the first column.
+| Plan | Duration | Price | Recommended Usage |
+| --- | --- | --- | --- |
+| Day pass | 1 day | 39 CNY | Trial use or small one-time tasks |
+| Monthly pass | 1 month | 149 CNY | Short-term collection needs |
+| Quarterly pass | 3 months | 399 CNY | Medium-term collection needs |
+| Yearly pass | 1 year | 799 CNY | Long-term stable use |
 
-**Example:**
+Purchase page: [https://mgnb.pro/product/youtube_cmt](https://mgnb.pro/product/youtube_cmt)
 
-| Video URL |
-|-----------|
-| https://www.youtube.com/watch?v=abc123 |
-| https://www.youtube.com/watch?v=def456 |
-| https://www.youtube.com/watch?v=ghi789 |
+## 🔐 License and Activation Rules
 
-### Step 2: Open Software
+- The software uses a one-device-one-license mechanism. One license key can only be used on one computer.
+- Only one software instance is allowed on a single computer. Multiple concurrent instances are not supported.
+- The software is maintained by the author, and future versions will be published through [GitHub Releases](https://github.com/mashukui/ytb_cmt_spider/releases/).
 
-Double-click the software executable to launch it.
+## ❓ FAQ
 
-### Step 3: Configure Settings
+### Do I need to install Python?
 
-- **Video Source:** Select or import the target video file
-- **Comment Count:** Enter the number of comments to crawl per video (e.g., 30)
-  - Use `-1` to crawl all comments
-- **Output Format:** CSV file
+No. The software is packaged as a desktop client. Download the version for your operating system and run it directly.
 
-### Step 4: Start Crawling
+### Do I need to log in to YouTube?
 
-Click the **"Start"** button to begin crawling.
+No. The software collects comments through web interfaces and does not require logging in to a YouTube account.
 
-### Step 5: View Results
+### Will collected data be lost if the task is interrupted?
 
-After completion, a CSV file with the same name as the video ID will be generated in the software's folder.
+The software incrementally saves results during collection. If the task is interrupted, completed data is usually still preserved in the result files.
 
-**Result Example:**
+### Where are result files saved?
 
-| cid | text | time | author | channel | votes | replies | time_parsed | time2 | video_id |
-|-----|------|------|--------|---------|-------|---------|-------------|-------|----------|
-| 123456 | Great video! | 2 hours ago | John Doe | Tech Channel | 150 | 20 | 2026-03-19 09:00:00 | 2026-03-19 11:00:00 | abc123 |
+By default, result files are saved in the software directory. `CSV/JSON` files and log files are generated by task.
 
----
+### How many comments can it collect?
 
-## Requirements
+The software has handled anti-crawling issues and can continuously collect comments. The actual number of comments collected is usually consistent with the number of comments visible in the comment section.
 
-- **Operating System:** Windows 7/10/11 or macOS 10.14+
-- **Python:** Not required (software is standalone)
-- **Memory:** 512MB+
-- **Storage:** 100MB+ free space
+### What should I do if an error occurs?
 
----
+Check the log files under the `logs` directory first. When reporting an issue, please provide:
 
-## Pricing
+- Software version
+- Operating system
+- Video link used
+- Collection parameters
+- Error screenshot
+- Log content around the time when the error occurred
 
-### License Types
+## ⚠️ Compliance Statement
 
-| Type | Duration | Price | Notes |
-|------|----------|-------|-------|
-| **Daily Pass** | 1 day | ¥39 | One-time purchase, for trial use |
-| **Monthly Pass** | 1 month | ¥149 | Multiple purchases allowed, for short-term needs |
-| **Quarterly Pass** | 3 months | ¥399 | Multiple purchases allowed, for medium-term needs |
-| **Yearly Pass** | 1 year | ¥799 | Multiple purchases allowed, for long-term needs |
+This software is intended only for lawful data analysis, learning, research, and authorized business scenarios. Users are responsible for complying with YouTube's terms of service, privacy policy, and applicable laws and regulations.
 
----
+Do not use this software for:
 
-## Purchase Methods
+- High-frequency, malicious, or destructive requests
+- Unauthorized collection, distribution, or sale of sensitive personal information
+- Activities that infringe the lawful rights of platforms, channel owners, or users
+- Any other behavior that violates laws, regulations, or platform rules
 
-### Self-Service Activation (Recommended)
+Users are solely responsible for risks and liabilities caused by improper use.
 
-Activation Portal: https://mgnb.pro/product/youtube_cmt
+## 📦 Get the Software
 
----
+- GitHub Releases: [https://github.com/mashukui/ytb_cmt_spider/releases/](https://github.com/mashukui/ytb_cmt_spider/releases/)
+- Reply `爬油管评论软件` in the WeChat official account `老男孩的平凡之路`
 
-## License Agreement
-
-### One Device One Code
-
-The software uses a **one-device-one-code** mechanism. A license key can only run on one computer and cannot be used on multiple computers.
-
-### Software Multi-Instance
-
-Only one instance of the software is allowed to run on a single computer. Multi-instance is not supported.
-
-### Software Maintenance
-
-The software is independently and originally developed by the author, with long-term maintenance and updates provided for stable operation.
-
----
-
-## Software Distribution
-
-**Get the latest version from:**
-
-WeChat Official Account: **老男孩的平凡之路**
-
-Reply to: **"爬油管评论"** (Crawl YouTube Comments)
-<img width="1406" height="266" alt="二维码-公众号放底部v3" src="https://github.com/user-attachments/assets/28c5c2bc-ea95-4baf-bfbb-d6faec6c52dd" />
-
-
-## Support
-
-If you encounter any issues:
-
-1. Check the log file in the `logs/` folder for detailed error messages
-2. Ensure your internet connection is stable
-3. Verify YouTube video URLs are correct
-4. Contact support via WeChat (magepy132) for further assistance
-
----
-
-## Credits
-
-**Developer:** [@马哥python说](https://github.com/mashukui)
-
-**Original Work:** YouTube Comment Spider v3.0
-
----
-
-**© 2026 马哥python说. All Rights Reserved.**
+<img alt="WeChat official account QR code" src="https://github.com/user-attachments/assets/89746aca-0200-461c-966d-1e5280668a44" />
