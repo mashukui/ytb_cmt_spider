@@ -168,7 +168,6 @@
 ## 📦 获取软件
 
 - GitHub Releases：[https://github.com/mashukui/ytb_cmt_spider/releases/](https://github.com/mashukui/ytb_cmt_spider/releases/)
-- 公众号 `老男孩的平凡之路`后台回复 `爬油管评论软件`
+- 公众号 `老男孩的平凡之路` 后台回复:`爬油管评论`
 
-<img alt="二维码-公众号放底部v3" src="https://github.com/user-attachments/assets/89746aca-0200-461c-966d-1e5280668a44" />
-
+<img width="573" height="196" alt="二维码-公众号放底部v4" src="https://github.com/user-attachments/assets/bf690fcd-ad81-496a-a6e3-ca14cbf63860" />
