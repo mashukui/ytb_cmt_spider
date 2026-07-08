@@ -207,24 +207,77 @@
         .step-body p { color: var(--muted); font-size: .9rem; }
         .step-body a { color: var(--red); }
 
-        /* ── Screenshot ── */
-        .screenshots { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
-        .screenshot-card {
-            background: #fafafa;
-            border-radius: 10px;
+        /* ── Carousel ── */
+        .carousel {
+            position: relative;
             overflow: hidden;
-            text-align: center;
+            border-radius: 10px;
+            background: #1a1a2e;
         }
-        .screenshot-card img {
+        .carousel-track {
+            display: flex;
+            transition: transform .4s ease;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+        .carousel-slide img {
             width: 100%;
             display: block;
-            border-bottom: 1px solid #eee;
         }
-        .screenshot-card .caption {
-            padding: .8rem;
-            font-size: .9rem;
-            color: var(--muted);
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,.75));
+            color: #fff;
+            padding: 2rem 1.5rem 1.2rem;
+            font-size: .95rem;
         }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,.85);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: background .2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,.15);
+        }
+        .carousel-btn:hover { background: #fff; }
+        .carousel-prev { left: 1rem; }
+        .carousel-next { right: 1rem; }
+        .carousel-dots {
+            position: absolute;
+            bottom: 3.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: .5rem;
+            z-index: 10;
+        }
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.4);
+            border: none;
+            cursor: pointer;
+            transition: background .2s;
+            padding: 0;
+        }
+        .carousel-dot.active { background: #fff; }
 
         /* ── Price Table ── */
         .price-grid {
@@ -486,16 +539,24 @@
         <span class="lang-zh"><span class="icon">🖼️</span> 功能展示</span>
         <span class="lang-en"><span class="icon">🖼️</span> Screenshots</span>
     </h2>
-    <div class="screenshots">
-        <div class="screenshot-card">
-            <img src="https://github.com/user-attachments/assets/af3caca6-f071-4377-871e-77e3d45a63bb" alt="Crawler GUI" loading="lazy">
-            <div class="caption lang-zh">📥 GUI 采集界面：输入视频链接，一键启动评论采集</div>
-            <div class="caption lang-en">📥 Crawler GUI — paste URLs and start with one click</div>
+    <div class="carousel" id="carousel">
+        <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide">
+                <img src="https://github.com/user-attachments/assets/af3caca6-f071-4377-871e-77e3d45a63bb" alt="Crawler GUI">
+                <div class="carousel-caption lang-zh">📥 GUI 采集界面：输入视频链接，一键启动评论采集</div>
+                <div class="carousel-caption lang-en">📥 Crawler GUI — paste URLs and start with one click</div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://github.com/user-attachments/assets/928dc2e4-da41-49b0-b205-be4f1e9e5b47" alt="Data export">
+                <div class="carousel-caption lang-zh">📊 结构化数据导出：CSV/JSON 文件，Excel 直接打开</div>
+                <div class="carousel-caption lang-en">📊 Structured data export — CSV/JSON, open in Excel directly</div>
+            </div>
         </div>
-        <div class="screenshot-card">
-            <img src="https://github.com/user-attachments/assets/928dc2e4-da41-49b0-b205-be4f1e9e5b47" alt="Data export" loading="lazy">
-            <div class="caption lang-zh">📊 结构化数据导出：CSV/JSON 文件，Excel 直接打开</div>
-            <div class="caption lang-en">📊 Structured data export — CSV/JSON, open in Excel directly</div>
+        <button class="carousel-btn carousel-prev" onclick="moveSlide(-1)">◀</button>
+        <button class="carousel-btn carousel-next" onclick="moveSlide(1)">▶</button>
+        <div class="carousel-dots" id="carouselDots">
+            <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+            <button class="carousel-dot" onclick="goToSlide(1)"></button>
         </div>
     </div>
 </div>
@@ -685,6 +746,38 @@
 </div>
 
 <script>
+var currentSlide = 0;
+var totalSlides = 2;
+var track = document.getElementById('carouselTrack');
+var dots = document.querySelectorAll('.carousel-dot');
+var autoTimer;
+
+function updateCarousel() {
+    track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+    dots.forEach(function(d, i) { d.classList.toggle('active', i === currentSlide); });
+}
+function moveSlide(dir) {
+    currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
+    updateCarousel();
+    resetAuto();
+}
+function goToSlide(n) {
+    currentSlide = n;
+    updateCarousel();
+    resetAuto();
+}
+function resetAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(function() { moveSlide(1); }, 5000);
+}
+var touchStartX = 0;
+track.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; });
+track.addEventListener('touchend', function(e) {
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) moveSlide(diff > 0 ? 1 : -1);
+});
+autoTimer = setInterval(function() { moveSlide(1); }, 5000);
+
 function switchLang(lang) {
     document.documentElement.setAttribute('lang', lang);
     document.querySelectorAll('.lang-btn').forEach(function(btn) {
