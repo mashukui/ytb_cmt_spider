@@ -3,59 +3,558 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube 评论采集 - 使用指南</title>
+    <title>YouTube 评论采集 - 产品文档 | 马哥python说</title>
     <style>
+        :root {
+            --red: #ff0000;
+            --dark: #1a1a2e;
+            --bg: #f8f9fa;
+            --card: #ffffff;
+            --text: #333333;
+            --muted: #666666;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #f9f9f9; color: #333; }
-        .container { max-width: 800px; margin: 0 auto; padding: 2rem; }
-        .hero { background: linear-gradient(135deg, #ff0000, #cc0000); color: #fff; padding: 3rem 2rem; text-align: center; border-radius: 12px; margin-bottom: 2rem; }
-        .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-        .hero p { opacity: .9; font-size: 1.1rem; }
-        .section { background: #fff; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
-        .section h2 { margin-bottom: 0.8rem; font-size: 1.2rem; }
-        .section ul { padding-left: 1.2rem; line-height: 1.8; }
-        .cta { display: block; text-align: center; margin: 2rem 0; }
-        .cta a { background: #ff0000; color: #fff; padding: 14px 40px; border-radius: 8px; text-decoration: none; font-size: 1.1rem; font-weight: bold; }
-        img { max-width: 100%; border-radius: 8px; margin-top: 0.5rem; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            background: linear-gradient(135deg, #cc0000 0%, #ff0000 50%, #ff4444 100%);
+            color: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.2; }
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+            z-index: 1;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            opacity: .92;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .hero .badges {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        .hero .badge {
+            background: rgba(255,255,255,.2);
+            backdrop-filter: blur(6px);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: .9rem;
+        }
+        .hero .cta-btn {
+            display: inline-block;
+            margin-top: 1.8rem;
+            background: #fff;
+            color: var(--red);
+            padding: 14px 48px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+            transition: transform .15s, box-shadow .15s;
+        }
+        .hero .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,.2);
+        }
+        .hero .cta-sub {
+            display: block;
+            margin-top: .5rem;
+            font-size: .85rem;
+            opacity: .75;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── Container ── */
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 1.5rem 3rem;
+        }
+
+        /* ── Section ── */
+        .section {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,.06);
+        }
+        .section h2 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+        .section h2 .icon { font-size: 1.3rem; }
+
+        /* ── Feature Grid ── */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+        .feature-card {
+            background: #fafafa;
+            padding: 1.2rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--red);
+        }
+        .feature-card h3 { font-size: 1rem; margin-bottom: .4rem; }
+        .feature-card p { font-size: .9rem; color: var(--muted); }
+
+        /* ── Steps ── */
+        .steps { counter-reset: step; }
+        .step {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            padding: .8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .step:last-child { border-bottom: none; }
+        .step-num {
+            counter-increment: step;
+            background: var(--red);
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: .9rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .step-body h4 { font-size: 1rem; margin-bottom: .2rem; }
+        .step-body p { color: var(--muted); font-size: .9rem; }
+
+        /* ── Screenshot ── */
+        .screenshots { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+        .screenshot-card {
+            background: #fafafa;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+        }
+        .screenshot-card img {
+            width: 100%;
+            display: block;
+            border-bottom: 1px solid #eee;
+        }
+        .screenshot-card .caption {
+            padding: .8rem;
+            font-size: .9rem;
+            color: var(--muted);
+        }
+
+        /* ── Price Table ── */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: .8rem;
+        }
+        .price-card {
+            background: #fafafa;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: border-color .2s;
+        }
+        .price-card:hover { border-color: var(--red); }
+        .price-card.featured {
+            border-color: var(--red);
+            background: #fff5f5;
+        }
+        .price-card .name { font-weight: 700; font-size: 1.1rem; margin-bottom: .3rem; }
+        .price-card .duration { font-size: .8rem; color: var(--muted); margin-bottom: .8rem; }
+        .price-card .money { font-size: 1.6rem; font-weight: 800; color: var(--red); }
+        .price-card .money span { font-size: .8rem; font-weight: 400; }
+        .price-card .scene { font-size: .8rem; color: var(--muted); margin-top: .5rem; }
+
+        /* ── FAQ ── */
+        .faq-item {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            margin-bottom: .8rem;
+            overflow: hidden;
+        }
+        .faq-q {
+            background: #fafafa;
+            padding: 1rem 1.2rem;
+            font-weight: 600;
+            font-size: .95rem;
+            cursor: default;
+            user-select: none;
+        }
+        .faq-a {
+            padding: 1rem 1.2rem;
+            font-size: .9rem;
+            color: var(--muted);
+            border-top: 1px solid #eee;
+        }
+
+        /* ── Tech Table ── */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: .6rem;
+        }
+        .tech-item {
+            background: #fafafa;
+            padding: .7rem 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: .85rem;
+        }
+        .tech-item strong { display: block; font-size: .95rem; margin-bottom: .1rem; }
+
+        /* ── Footer CTA ── */
+        .footer-cta {
+            background: linear-gradient(135deg, #1a1a2e, #2d2d44);
+            color: #fff;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 2rem;
+            border-radius: 12px;
+        }
+        .footer-cta h3 { font-size: 1.4rem; margin-bottom: .5rem; }
+        .footer-cta p { opacity: .8; margin-bottom: 1.5rem; }
+        .footer-cta a {
+            display: inline-block;
+            background: var(--red);
+            color: #fff;
+            padding: 14px 48px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform .15s;
+        }
+        .footer-cta a:hover { transform: scale(1.03); }
+
+        /* ── Footer ── */
+        .site-footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #aaa;
+            font-size: .85rem;
+        }
+        .site-footer a { color: #999; text-decoration: none; }
+
+        /* ── Responsive ── */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.7rem; }
+            .section { padding: 1.2rem; }
+            .price-grid { grid-template-columns: 1fr 1fr; }
+            .feature-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <h1>📺 YouTube 评论采集</h1>
-            <p>一键采集 YouTube 视频评论数据，GUI 界面开箱即用</p>
-        </div>
 
-        <div class="section">
-            <h2>✨ 功能特点</h2>
-            <ul>
-                <li>支持按视频链接采集评论</li>
-                <li>支持按频道批量采集</li>
-                <li>评论数据导出 Excel / CSV</li>
-                <li>全 GUI 界面，无需命令行</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>📸 软件截图</h2>
-            <img src="images/screenshot.png" alt="软件截图">
-        </div>
-
-        <div class="section">
-            <h2>📖 使用教程</h2>
-            <ul>
-                <li>打开软件，粘贴 YouTube 视频链接</li>
-                <li>选择采集字段（评论内容、作者、时间等）</li>
-                <li>点击开始采集，等待完成</li>
-                <li>导出数据到 Excel</li>
-            </ul>
-        </div>
-
-        <div class="cta">
-            <a href="https://mgnb.pro/product/youtube_cmt" target="_blank">👉 立即购买</a>
-        </div>
-
-        <p style="text-align:center;color:#999;font-size:.85rem;">© 2025 马哥python说 · Powered by GitHub Pages</p>
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero">
+    <h1>📺 YouTube 评论采集</h1>
+    <p>批量采集 YouTube 视频评论数据，支持语言识别、分页采集、CSV/JSON 导出，GUI 界面开箱即用</p>
+    <div class="badges">
+        <span class="badge">🖥️ Windows + macOS</span>
+        <span class="badge">🚀 无需 Python 环境</span>
+        <span class="badge">📦 开箱即用</span>
     </div>
+    <a class="cta-btn" href="https://mgnb.pro/product/youtube_cmt" target="_blank">💰 立即开通使用</a>
+    <span class="cta-sub">日卡 ¥39 起 · 一机一码 · 持续更新维护</span>
+</header>
+
+<div class="container">
+
+<!-- ═══════════ 简介 ═══════════ -->
+<div class="section">
+    <h2><span class="icon">👋</span> 软件简介</h2>
+    <p>
+        <strong>ytb_cmt_spider</strong> 是一款面向 YouTube 评论数据采集场景的桌面 GUI 工具。
+        支持批量输入视频链接，自动采集视频评论、评论作者、评论时间、点赞数、语言识别结果等数据，
+        并导出为 CSV / JSON 文件。用户无需配置 Python 环境，下载客户端后登录即可使用。
+    </p>
+</div>
+
+<!-- ═══════════ 适用场景 ═══════════ -->
+<div class="section">
+    <h2><span class="icon">🎯</span> 适用场景</h2>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>🌍 跨境运营</h3>
+            <p>采集海外用户反馈、内容偏好和产品评价，精准把握市场动态</p>
+        </div>
+        <div class="feature-card">
+            <h3>📊 舆情分析</h3>
+            <p>跟踪品牌或事件相关评论，观察讨论趋势和用户态度</p>
+        </div>
+        <div class="feature-card">
+            <h3>🎬 内容创作</h3>
+            <p>分析热门视频评论区高频问题和观众兴趣点，指导选题</p>
+        </div>
+        <div class="feature-card">
+            <h3>🔬 数据研究</h3>
+            <p>导出结构化数据，用于后续清洗、分析和建模</p>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════ 功能概览 ═══════════ -->
+<div class="section">
+    <h2><span class="icon">⚙️</span> 功能概览</h2>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>✅ 批量采集</h3>
+            <p>支持多个视频链接批量输入，一次启动全部采集</p>
+        </div>
+        <div class="feature-card">
+            <h3>✅ 分页翻页</h3>
+            <p>自动翻页获取全部评论，无需手动翻页</p>
+        </div>
+        <div class="feature-card">
+            <h3>✅ 语言识别</h3>
+            <p>自动识别评论语言，方便筛选不同语种</p>
+        </div>
+        <div class="feature-card">
+            <h3>✅ 互动数据</h3>
+            <p>采集评论时间、点赞数等互动指标</p>
+        </div>
+        <div class="feature-card">
+            <h3>✅ 自动保存</h3>
+            <p>采集过程中持续保存，降低中断丢数风险</p>
+        </div>
+        <div class="feature-card">
+            <h3>✅ 运行日志</h3>
+            <p>自动记录运行过程，方便事后排查问题</p>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════ 快速开始 ═══════════ -->
+<div class="section">
+    <h2><span class="icon">🚀</span> 快速开始</h2>
+    <div class="steps">
+        <div class="step">
+            <div class="step-num"></div>
+            <div class="step-body">
+                <h4>下载软件</h4>
+                <p>前往 <a href="https://github.com/mashukui/ytb_cmt_spider/releases/" target="_blank">GitHub Releases</a> 下载最新版客户端</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num"></div>
+            <div class="step-body">
+                <h4>解压运行</h4>
+                <p>解压后双击运行对应系统的客户端（Windows 或 macOS）</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num"></div>
+            <div class="step-body">
+                <h4>登录账号</h4>
+                <p>使用购买后获得的卡密登录软件</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num"></div>
+            <div class="step-body">
+                <h4>填写链接</h4>
+                <p>在「目标视频.xlsx」中批量填写 YouTube 视频链接</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num"></div>
+            <div class="step-body">
+                <h4>开始采集</h4>
+                <p>点击「开始执行」，等待采集完成</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num"></div>
+            <div class="step-body">
+                <h4>查看结果</h4>
+                <p>在软件所在目录查看 CSV / JSON 结果文件和日志</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════ 截图展示 ═══════════ -->
+<div class="section">
+    <h2><span class="icon">🖼️</span> 功能展示</h2>
+    <div class="screenshots">
+        <div class="screenshot-card">
+            <img src="https://github.com/user-attachments/assets/af3caca6-f071-4377-871e-77e3d45a63bb" alt="评论采集界面" loading="lazy">
+            <div class="caption">📥 GUI 采集界面：输入视频链接，一键启动评论采集</div>
+        </div>
+        <div class="screenshot-card">
+            <img src="https://github.com/user-attachments/assets/928dc2e4-da41-49b0-b205-be4f1e9e5b47" alt="数据导出结果" loading="lazy">
+            <div class="caption">📊 结构化数据导出：CSV/JSON 文件，Excel 直接打开</div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════ 输出字段 ═══════════ -->
+<div class="section">
+    <h2><span class="icon">📊</span> 输出数据说明</h2>
+    <p style="margin-bottom:1rem;">采集完成后生成结构化 CSV / JSON 文件，包含以下字段：</p>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>📋 采集信息</h3>
+            <p>视频链接、视频 ID、页码或序号</p>
+        </div>
+        <div class="feature-card">
+            <h3>💬 评论信息</h3>
+            <p>评论 ID、评论内容、评论时间、点赞数、评论级别</p>
+        </div>
+        <div class="feature-card">
+            <h3>👤 作者信息</h3>
+            <p>作者昵称、作者频道 ID、作者频道链接</p>
+        </div>
+        <div class="feature-card">
+            <h3>🌐 语言信息</h3>
+            <p>评论语言、语言识别结果</p>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════ 价格 ═══════════ -->
+<div class="section">
+    <h2><span class="icon">💰</span> 价格说明</h2>
+    <div class="price-grid">
+        <div class="price-card">
+            <div class="name">日卡</div>
+            <div class="duration">使用期限 1 天</div>
+            <div class="money">¥39</div>
+            <div class="scene">临时试用、小批量任务</div>
+        </div>
+        <div class="price-card featured">
+            <div class="name">月卡</div>
+            <div class="duration">使用期限 1 个月</div>
+            <div class="money">¥149</div>
+            <div class="scene">⭐ 短期采集需求</div>
+        </div>
+        <div class="price-card">
+            <div class="name">季卡</div>
+            <div class="duration">使用期限 3 个月</div>
+            <div class="money">¥399</div>
+            <div class="scene">中期采集需求</div>
+        </div>
+        <div class="price-card">
+            <div class="name">年卡</div>
+            <div class="duration">使用期限 1 年</div>
+            <div class="money">¥799</div>
+            <div class="scene">长期稳定使用</div>
+        </div>
+    </div>
+    <p style="text-align:center;margin-top:1.2rem;">
+        <a href="https://mgnb.pro/product/youtube_cmt" target="_blank" style="color:var(--red);font-weight:600;">👉 立即开通</a>
+    </p>
+</div>
+
+<!-- ═══════════ 技术说明 ═══════════ -->
+<div class="section">
+    <h2><span class="icon">🛠️</span> 技术说明</h2>
+    <p style="margin-bottom:1rem;">采用 Python 开发，不依赖手动复制评论，通过接口请求采集数据：</p>
+    <div class="tech-grid">
+        <div class="tech-item"><strong>tkinter</strong>GUI 界面</div>
+        <div class="tech-item"><strong>requests</strong>接口请求</div>
+        <div class="tech-item"><strong>json</strong>数据解析</div>
+        <div class="tech-item"><strong>pandas</strong>CSV 保存</div>
+        <div class="tech-item"><strong>logging</strong>日志记录</div>
+    </div>
+</div>
+
+<!-- ═══════════ 授权规则 ═══════════ -->
+<div class="section">
+    <h2><span class="icon">🔐</span> 授权规则</h2>
+    <ul style="padding-left:1.2rem;line-height:2;list-style:none;">
+        <li>🔑 一机一码机制，一个卡密仅支持一台电脑使用</li>
+        <li>🚫 一台电脑仅允许运行一个软件实例，不支持多开</li>
+        <li>🔄 软件由作者长期维护，后续版本通过 <a href="https://github.com/mashukui/ytb_cmt_spider/releases/" target="_blank">GitHub Releases</a> 发布</li>
+    </ul>
+</div>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<div class="section">
+    <h2><span class="icon">❓</span> 常见问题</h2>
+    <div class="faq-item">
+        <div class="faq-q">🟢 是否需要安装 Python？</div>
+        <div class="faq-a">不需要。软件已打包为桌面客户端，下载对应系统版本后即可运行。</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-q">🟢 是否需要登录 YouTube？</div>
+        <div class="faq-a">不需要。软件通过网页接口实现持续采集，无需登录 YouTube 账号。</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-q">🟢 采集中断后数据会丢失吗？</div>
+        <div class="faq-a">不会。软件在采集过程中持续保存结果，网络异常或任务中断不会丢失已采集的数据。</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-q">🟢 支持导出哪些格式？</div>
+        <div class="faq-a">支持 CSV 和 JSON 两种格式。CSV 适合 Excel / WPS / Numbers 直接打开，JSON 适合程序化处理和接口对接。</div>
+    </div>
+</div>
+
+<!-- ═══════════ 底部 CTA ═══════════ -->
+<div class="footer-cta">
+    <h3>🎬 准备好开始了吗？</h3>
+    <p>日卡仅需 ¥39，立即体验 YouTube 评论批量采集</p>
+    <a href="https://mgnb.pro/product/youtube_cmt" target="_blank">💰 立即开通使用</a>
+</div>
+
+<!-- ═══════════ Footer ═══════════ -->
+<div class="site-footer">
+    <p>© 2025 马哥python说 · Powered by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
+    <p style="margin-top:.3rem;">
+        <a href="https://github.com/mashukui/ytb_cmt_spider" target="_blank">GitHub 仓库</a> ·
+        <a href="https://github.com/mashukui/ytb_cmt_spider/releases/" target="_blank">版本下载</a> ·
+        <a href="https://mgnb.pro/product/youtube_cmt" target="_blank">开通使用</a>
+    </p>
+</div>
+
+</div>
+
 </body>
 </html>
