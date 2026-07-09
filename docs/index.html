@@ -216,25 +216,32 @@
         }
         .carousel-track {
             display: flex;
+            align-items: flex-start;
             transition: transform .4s ease;
         }
         .carousel-slide {
             min-width: 100%;
             position: relative;
+            line-height: 0;
         }
         .carousel-slide img {
             width: 100%;
+            height: auto;
             display: block;
         }
-        .carousel-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,.75));
+        .carousel-caption-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
             color: #fff;
-            padding: 2rem 1.5rem 1.2rem;
+            background: #1a1a2e;
+            border-top: 1px solid rgba(255,255,255,.12);
+            padding: .85rem 4.5rem;
             font-size: .95rem;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.45;
         }
         .carousel-btn {
             position: absolute;
@@ -260,12 +267,15 @@
         .carousel-next { right: 1rem; }
         .carousel-dots {
             position: absolute;
-            bottom: 3.5rem;
+            bottom: 4.6rem;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
             gap: .5rem;
             z-index: 10;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 1rem;
         }
         .carousel-dot {
             width: 10px;
@@ -543,13 +553,9 @@
         <div class="carousel-track" id="carouselTrack">
             <div class="carousel-slide">
                 <img src="https://github.com/user-attachments/assets/af3caca6-f071-4377-871e-77e3d45a63bb" alt="Crawler GUI">
-                <div class="carousel-caption lang-zh">📥 GUI 采集界面：输入视频链接，一键启动评论采集</div>
-                <div class="carousel-caption lang-en">📥 Crawler GUI — paste URLs and start with one click</div>
             </div>
             <div class="carousel-slide">
                 <img src="https://github.com/user-attachments/assets/928dc2e4-da41-49b0-b205-be4f1e9e5b47" alt="Data export">
-                <div class="carousel-caption lang-zh">📊 结构化数据导出：CSV/JSON 文件，Excel 直接打开</div>
-                <div class="carousel-caption lang-en">📊 Structured data export — CSV/JSON, open in Excel directly</div>
             </div>
         </div>
         <button class="carousel-btn carousel-prev" onclick="moveSlide(-1)">◀</button>
@@ -558,6 +564,7 @@
             <button class="carousel-dot active" onclick="goToSlide(0)"></button>
             <button class="carousel-dot" onclick="goToSlide(1)"></button>
         </div>
+        <div class="carousel-caption-bar" id="carouselCaption">📥 GUI 采集界面：输入视频链接，一键启动评论采集</div>
     </div>
 </div>
 
@@ -750,11 +757,18 @@ var currentSlide = 0;
 var totalSlides = 2;
 var track = document.getElementById('carouselTrack');
 var dots = document.querySelectorAll('.carousel-dot');
+var caption = document.getElementById('carouselCaption');
 var autoTimer;
+var captions = [
+    { zh: '📥 GUI 采集界面：输入视频链接，一键启动评论采集', en: '📥 Crawler GUI — paste URLs and start with one click' },
+    { zh: '📊 结构化数据导出：CSV/JSON 文件，Excel 直接打开', en: '📊 Structured data export — CSV/JSON, open in Excel directly' }
+];
 
 function updateCarousel() {
     track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
     dots.forEach(function(d, i) { d.classList.toggle('active', i === currentSlide); });
+    var lang = document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'zh';
+    caption.textContent = captions[currentSlide][lang];
 }
 function moveSlide(dir) {
     currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
@@ -784,6 +798,7 @@ function switchLang(lang) {
         btn.classList.toggle('active',
             btn.textContent.trim() === (lang === 'zh-CN' ? '中文' : 'EN'));
     });
+    updateCarousel();
     // save preference
     try { localStorage.setItem('ytb-cmt-lang', lang); } catch(e) {}
 }
