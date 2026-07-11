@@ -176,7 +176,10 @@
     .feature-side article:nth-child(n+3) { border-top: 1px solid var(--line); }
     .feature-grid h3 { margin: 0; font-size: 20px; }
     .feature-grid p { margin: 10px 0 0; color: var(--muted); font-size: 14px; }
-    .feature-main strong { display: block; margin-top: 34px; color: var(--accent-dark); font-size: 58px; line-height: 1; letter-spacing: -.06em; }
+    .feature-main strong { display: block; margin-top: 28px; color: var(--accent-dark); font-size: 46px; line-height: 1; letter-spacing: -.06em; }
+    .input-preview { margin: 24px 0 0; overflow: hidden; border: 1px solid rgba(172, 24, 34, .22); border-radius: 14px; background: var(--surface); }
+    .input-preview img { display: block; width: 100%; height: auto; }
+    .input-preview figcaption { padding: 10px 13px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
 
     .workflow-section { background: #20201e; color: #f5f5f1; }
     .workflow-inner { width: min(var(--content), calc(100% - 40px)); margin: 0 auto; padding: 104px 0; }
@@ -325,7 +328,8 @@
       .section-heading h2 { font-size: 34px; }
       .section-heading p { font-size: 16px; }
       .feature-main { padding: 26px; }
-      .feature-main strong { font-size: 48px; }
+      .feature-main strong { font-size: 42px; }
+      .input-preview { margin-top: 20px; }
       .feature-side { grid-template-columns: 1fr; }
       .feature-side article:nth-child(even) { border-left: 0; }
       .feature-side article + article { border-top: 1px solid var(--line); }
@@ -425,7 +429,7 @@
         <p data-zh="软件负责读取任务、翻页采集、识别语言和保存结果。后续分析交给你熟悉的数据工具。" data-en="The app reads tasks, paginates comments, detects languages and saves results. Continue analysis in your preferred data tools.">软件负责读取任务、翻页采集、识别语言和保存结果。后续分析交给你熟悉的数据工具。</p>
       </div>
       <div class="feature-grid">
-        <article class="feature-main"><h3 data-zh="批量视频任务" data-en="Batch video tasks">批量视频任务</h3><p data-zh="在目标视频表格中集中填写链接，适合一次处理多个视频，不必逐条复制到软件界面。" data-en="Fill video links in one target sheet and process multiple videos without pasting them into the app one by one.">在目标视频表格中集中填写链接，适合一次处理多个视频，不必逐条复制到软件界面。</p><strong data-zh="表格输入" data-en="Sheet input">表格输入</strong></article>
+        <article class="feature-main"><h3 data-zh="批量视频任务" data-en="Batch video tasks">批量视频任务</h3><p data-zh="在目标视频表格中集中填写链接，适合一次处理多个视频，不必逐条复制到软件界面。" data-en="Fill video links in one target sheet and process multiple videos without pasting them into the app one by one.">在目标视频表格中集中填写链接，适合一次处理多个视频，不必逐条复制到软件界面。</p><strong data-zh="表格输入" data-en="Sheet input">表格输入</strong><figure class="input-preview"><picture><source srcset="images/input.avif" type="image/avif"><img src="images/input.png" width="1170" height="720" loading="lazy" decoding="async" alt="目标视频表格输入示例，表格中按行填写多个 YouTube 视频链接"></picture><figcaption data-zh="目标视频.xlsx：每行填写一个需要采集评论的视频链接" data-en="目标视频.xlsx: enter one video URL per row">目标视频.xlsx：每行填写一个需要采集评论的视频链接</figcaption></figure></article>
         <div class="feature-side">
           <article><h3 data-zh="数量与排序" data-en="Count and order">数量与排序</h3><p data-zh="设置每个视频采集前 N 条评论，或用 -1 尝试获取全部可见评论，并选择界面提供的排序方式。" data-en="Collect the first N comments per video or use -1 to attempt all visible comments, with available ordering options.">设置每个视频采集前 N 条评论，或用 -1 尝试获取全部可见评论，并选择界面提供的排序方式。</p></article>
           <article><h3 data-zh="自动翻页" data-en="Pagination">自动翻页</h3><p data-zh="软件按评论页持续请求结果，减少手动展开和复制评论的重复操作。" data-en="The app continues through comment pages, reducing repeated manual expansion and copying.">软件按评论页持续请求结果，减少手动展开和复制评论的重复操作。</p></article>
