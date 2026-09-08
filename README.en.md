@@ -1,4 +1,10 @@
+<div align="center">
+
 # ytb_cmt_spider
+
+[![Release](https://img.shields.io/github/v/release/mashukui/ytb_cmt_spider?style=flat)](https://github.com/mashukui/ytb_cmt_spider/releases) [![Last Update](https://img.shields.io/github/release-date/mashukui/ytb_cmt_spider?style=flat)](https://github.com/mashukui/ytb_cmt_spider/releases) ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS-blue?style=flat)
+
+</div>
 
 > 🔥 YouTube comment collection tool / YouTube comment crawler GUI, supporting batch video comment collection, language detection, paginated comment collection, CSV/JSON export, and runtime logging.
 >
@@ -38,7 +44,7 @@ It is suitable for the following scenarios:
 
 1. Open [Releases](https://github.com/mashukui/ytb_cmt_spider/releases/) and download the latest version.
 2. Extract the package and run the client for your operating system.
-3. Log in to the software account.
+3. Log in to the software account (no account yet? [Day pass from 19 CNY, instant activation](#-pricing)).
 4. Batch-fill YouTube video links in `目标视频.xlsx`.
 5. Click "Start" and wait for the collection task to finish.
 6. Check the CSV/JSON result files and log files in the software directory.
@@ -115,11 +121,27 @@ Purchase page: [https://mgnb.pro/product/youtube_cmt](https://mgnb.pro/product/y
 
 ## 🔐 License and Activation Rules
 
-- The software uses a one-device-one-license mechanism. One license key can only be used on one computer.
+- The software uses account and password login (a phone number and password are provided after purchase). One account can only be used on one computer.
 - Only one software instance is allowed on a single computer. Multiple concurrent instances are not supported.
 - The software is maintained by the author, and future versions will be published through [GitHub Releases](https://github.com/mashukui/ytb_cmt_spider/releases/).
 
+## 🕒 Changelog
+
+| Version | Date | Notes |
+|---|---|---|
+| v3.3 | 2026-03-24 | Added registration entry; fixed time conversion error |
+
+> For the full release history, see [Releases](https://github.com/mashukui/ytb_cmt_spider/releases)
+
 ## ❓ FAQ
+
+### Can I use the software after changing computers or reinstalling the system?
+
+Yes. Activation is bound to one computer per account. To switch devices, contact the [WeChat official account 老男孩的平凡之路](https://github.com/mashukui/mashukui/blob/main/wechat2.png) and request unbinding; after that you can log in on the new computer.
+
+### Do I need to purchase again for software updates?
+
+No. During the license period, all future versions are freely available on [GitHub Releases](https://github.com/mashukui/ytb_cmt_spider/releases). Just download the latest version and reinstall.
 
 ### Do I need to install Python?
 
@@ -171,3 +193,10 @@ Users are solely responsible for risks and liabilities caused by improper use.
 - Reply `爬油管评论` in the WeChat official account `老男孩的平凡之路`
 
 <img width="573" height="196" alt="二维码-公众号放底部v4" src="https://github.com/user-attachments/assets/6113cb90-3f25-4e31-831d-52d4d7516596" />
+
+
+---
+
+<p align="center">
+More collection tools (Douyin / Xiaohongshu / Weibo / PGY / YouTube, 7 in total): <a href="https://mgnb.pro">马哥数据采集工坊 (mgnb.pro)</a>
+</p>

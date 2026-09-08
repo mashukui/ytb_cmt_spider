@@ -1,4 +1,10 @@
+<div align="center">
+
 # ytb_cmt_spider
+
+[![Release](https://img.shields.io/github/v/release/mashukui/ytb_cmt_spider?style=flat)](https://github.com/mashukui/ytb_cmt_spider/releases) [![最近更新](https://img.shields.io/github/release-date/mashukui/ytb_cmt_spider?style=flat)](https://github.com/mashukui/ytb_cmt_spider/releases) ![平台](https://img.shields.io/badge/%E5%B9%B3%E5%8F%B0-Windows%20%7C%20macOS-blue?style=flat)
+
+</div>
 
 > 🔥 YouTube 评论采集工具 / YouTube comment crawler GUI，支持批量视频评论采集、语言识别、评论分页采集、CSV/JSON导出和运行日志记录。
 >
@@ -38,7 +44,7 @@
 
 1. 打开 [Releases](https://github.com/mashukui/ytb_cmt_spider/releases/) 下载最新版软件。
 2. 解压后运行对应系统的客户端。
-3. 登录软件账号。
+3. 登录软件账号（还没账号？[日卡 19 元起，支付秒开通](#-价格说明)）。
 4. 在 `目标视频.xlsx` 中批量填写YouTube视频链接。
 5. 点击「开始执行」，等待采集完成。
 6. 在软件所在目录查看CSV/JSON结果文件和日志文件。
@@ -119,7 +125,23 @@
 - 一台电脑仅允许运行一个软件实例，不支持多开。
 - 软件由作者长期维护，后续版本通过 [GitHub Releases](https://github.com/mashukui/ytb_cmt_spider/releases/) 发布。
 
+## 🕒 更新日志
+
+| 版本 | 发布日期 | 更新内容 |
+|---|---|---|
+| v3.3 | 2026-03-24 | 新增用户注册入口；修复时间转换报错 |
+
+> 完整更新历史见 [Releases](https://github.com/mashukui/ytb_cmt_spider/releases)
+
 ## ❓ 常见问题
+
+### 换电脑或重装系统后还能用吗？
+
+可以。授权采用一机一码，一个账号绑定一台电脑；如需更换设备，请联系[公众号「老男孩的平凡之路」](https://github.com/mashukui/mashukui/blob/main/wechat2.png)后台申请解绑，处理后即可在新电脑登录使用。
+
+### 软件更新需要重新购买吗？
+
+不需要。授权有效期内，后续版本均通过 [GitHub Releases](https://github.com/mashukui/ytb_cmt_spider/releases) 免费更新，下载最新版覆盖安装即可。
 
 ### 是否需要安装 Python？
 
@@ -171,3 +193,10 @@
 - 公众号 `老男孩的平凡之路` 后台回复:`爬油管评论`
 
 <img width="573" height="196" alt="二维码-公众号放底部v4" src="https://github.com/user-attachments/assets/bf690fcd-ad81-496a-a6e3-ca14cbf63860" />
+
+
+---
+
+<p align="center">
+更多采集工具（抖音 / 小红书 / 微博 / 蒲公英 / 油管等 7 款）：<a href="https://mgnb.pro">马哥数据采集工坊</a>
+</p>
