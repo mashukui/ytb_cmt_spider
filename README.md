@@ -6,15 +6,15 @@
 
 </div>
 
-> 🔥 YouTube 评论采集工具 / YouTube comment crawler GUI，支持批量视频评论采集、语言识别、评论分页采集、CSV/JSON导出和运行日志记录。
->
-> 💡 支持 Windows/macOS，无需配置 Python 环境；仓库用于软件介绍、版本发布、使用说明和问题反馈，完整源码暂不公开。
->
-> [⬇️下载最新版](https://github.com/mashukui/ytb_cmt_spider/releases/) | [🎬使用演示](https://www.bilibili.com/video/BV1qWUwBsEo9/) | [🏠产品主页](https://mashukui.github.io/ytb_cmt_spider/) | [💳开通使用](https://mgnb.pro/product/youtube_cmt)
-
 <p align="center">
   <a href="README.md">简体中文 README</a> | <a href="README.en.md">English README</a>
 </p>
+
+> 🔥 YouTube评论采集工具 / YouTube comment crawler GUI，支持批量视频评论采集、评论分页采集、CSV/JSON导出和日志记录。
+>
+> 💡 支持 Windows / MacOS，无需配置python环境；仓库用于软件介绍、版本发布和问题反馈，完整源码暂不公开。
+>
+> [⬇️下载最新版](https://github.com/mashukui/ytb_cmt_spider/releases/) | [🎬使用演示](https://www.bilibili.com/video/BV1qWUwBsEo9/) | [🏠产品主页](https://mashukui.github.io/ytb_cmt_spider/) | [💳开通使用](https://mgnb.pro/product/youtube_cmt)
 
 ## 👋 软件简介
 
