@@ -6,15 +6,16 @@
 
 </div>
 
+<p align="center">
+  <a href="README.md">简体中文 README</a> | <a href="README.en.md">English README</a>
+</p>
+
 > 🔥 YouTube comment collection tool / YouTube comment crawler GUI, supporting batch video comment collection, language detection, paginated comment collection, CSV/JSON export, and runtime logging.
 >
 > 💡 Supports Windows/macOS with no Python environment required. This repository is used for software introduction, release distribution, usage documentation, and issue feedback. The complete source code is not publicly available.
 >
 > [⬇️Download Latest Release](https://github.com/mashukui/ytb_cmt_spider/releases/) | [🎬Video Demo](https://www.bilibili.com/video/BV1qWUwBsEo9/) | [🏠Homepage](https://mashukui.github.io/ytb_cmt_spider/) | [💳Purchase Access](https://mgnb.pro/product/youtube_cmt)
 
-<p align="center">
-  <a href="README.md">简体中文 README</a> | <a href="README.en.md">English README</a>
-</p>
 
 ## 👋 Overview
 
