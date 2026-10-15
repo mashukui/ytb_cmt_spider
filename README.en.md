@@ -45,7 +45,7 @@ It is suitable for the following scenarios:
 
 1. Open [Releases](https://github.com/mashukui/ytb_cmt_spider/releases/) and download the latest version.
 2. Extract the package and run the client for your operating system.
-3. Log in to the software account (no account yet? [Day pass from 19 CNY, instant activation](#-pricing)).
+3. Log in to the software account (no account yet? [Day pass from 29 CNY, instant activation](#-pricing)).
 4. Batch-fill YouTube video links in `目标视频.xlsx`.
 5. Click "Start" and wait for the collection task to finish.
 6. Check the CSV/JSON result files and log files in the software directory.
@@ -113,7 +113,7 @@ The software collects data through web interfaces and does not require manually 
 
 | Plan | Duration | Price | Recommended Usage |
 | --- | --- | --- | --- |
-| Day pass | 1 day | 19 CNY | Trial use or small one-time tasks |
+| Day pass | 1 day | 29 CNY | Trial use or small one-time tasks |
 | Monthly pass | 1 month | 149 CNY | Short-term collection needs |
 | Quarterly pass | 3 months | 349 CNY | Medium-term collection needs |
 | Yearly pass | 1 year | 799 CNY | Long-term stable use |
