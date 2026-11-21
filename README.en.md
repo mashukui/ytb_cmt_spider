@@ -130,6 +130,7 @@ Purchase page: [https://mgnb.pro/product/youtube_cmt](https://mgnb.pro/product/y
 
 | Version | Date | Notes |
 |---|---|---|
+| v3.4 | 2026-10-16 | Support for more input formats (youtu.be, youtube.com, /shorts/); improved device-binding algorithm; friendlier network-timeout dialog; skip failed videos without stopping the batch; other bug fixes |
 | v3.3 | 2026-03-24 | Added registration entry; fixed time conversion error |
 
 > For the full release history, see [Releases](https://github.com/mashukui/ytb_cmt_spider/releases)
